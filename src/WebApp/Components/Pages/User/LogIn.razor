@@ -1,21 +1,62 @@
-﻿@page "/user/login"
+﻿@* @page "/user/login"
 @inject NavigationManager Nav
 @attribute [Authorize]
 @code {
-    [SupplyParameterFromQuery]
-    public string? ReturnUrl { get; set; }
+	[SupplyParameterFromQuery]
+	public string? ReturnUrl { get; set; }
 
-    [CascadingParameter]
-    public HttpContext? HttpContext { get; set; }
+	[CascadingParameter]
+	public HttpContext? HttpContext { get; set; }
 
-    protected override async Task OnInitializedAsync()
-    {
-        var returnUrl = ReturnUrl ?? "/";
-        var url = new Uri(returnUrl, UriKind.RelativeOrAbsolute);
-        Nav.NavigateTo(url.IsAbsoluteUri ? "/" : returnUrl);
-        await base.OnInitializedAsync();
+	//protected override async Task OnInitializedAsync()
+	protected async Task OnAfterRenderAsync()
+	{
+			var returnUrl = ReturnUrl ?? "/";
+			var url = new Uri(returnUrl, UriKind.RelativeOrAbsolute);
+			Nav.NavigateTo(url.IsAbsoluteUri ? "/" : returnUrl, true);
+			//await base.OnInitializedAsync();
+			await InvokeAsync(StateHasChanged);
     }
 
     public static string Url(NavigationManager nav)
         => $"user/login?returnUrl={Uri.EscapeDataString(nav.ToBaseRelativePath(nav.Uri))}";
+		//=> $"user/login?returnUrl={Uri.EscapeDataString(nav.Uri)}";
+} *@
+
+@page "/user/login"
+@inject NavigationManager Nav
+@attribute [Authorize]
+
+@code {
+	[SupplyParameterFromQuery]
+	public string? ReturnUrl { get; set; }
+
+	[CascadingParameter]
+	public HttpContext? HttpContext { get; set; }
+
+	private bool isAuthenticated;
+
+	protected override async Task OnInitializedAsync()
+	{
+		// On initialization, we only check if the user is authenticated.
+		isAuthenticated = HttpContext?.User?.Identity?.IsAuthenticated ?? false;
+		await base.OnInitializedAsync();
+	}
+
+	// Perform the redirection after the component has rendered
+	protected override async Task OnAfterRenderAsync(bool firstRender)
+	{
+		if (firstRender && isAuthenticated)
+		{
+			var returnUrl = ReturnUrl ?? "/";
+			var url = new Uri(returnUrl, UriKind.RelativeOrAbsolute);
+			Nav.NavigateTo(url.IsAbsoluteUri ? "/" : returnUrl, true);
+		}
+
+		await base.OnAfterRenderAsync(firstRender);
+	}
+
+	// This method can be used to generate the login URL
+	public static string Url(NavigationManager nav)
+		=> $"user/login?returnUrl={Uri.EscapeDataString(nav.ToBaseRelativePath(nav.Uri))}";
 }

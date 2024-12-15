@@ -806,5 +806,45 @@
     "Name": "TCK Polkadot Cozy Socks",
     "Description": "Sweet polka dots on super cozy and soft socks!",
     "Price": 10.99
+  },
+  {
+    "Id": 102,
+    "Type": "Plush",
+    "Brand": "Mascot Factory",
+    "Name": "Frizzy Bear with Hoody",
+    "Description": "Meet your new favorite cuddle buddy: this adorable 11-inch bear, ready to find its forever home! This charming plush bear is dressed to impress in a cozy hoodie adorned with the Saints logo, making it the perfect blend of comfort and team spirit. Made from soft, high-quality materials, this bear is designed for endless hugs and snuggles. Whether you're a devoted fan or looking for a sweet gift, this bear with its stylish hoodie is sure to warm hearts and bring joy. Don’t miss the chance to bring this delightful companion home today!",
+    "Price": 21.99
+  },
+  {
+    "Id": 103,
+    "Type": "Plush",
+    "Brand": "Mascot Factory",
+    "Name": "Paws & Pouches Dog",
+    "Description": "Introducing your new best friend: this lovable plush dog! Standing at 8 inches tall, it’s crafted from soft polyester fiber for the ultimate in cuddles and comfort. The dog features an endearing small pouch on its belly and sports a trendy bandana with St. Scholastica graphics. With its irresistible design and printed details, this plush pup is not only a charming companion but also a treasured keepsake. For easy maintenance, just spot clean as needed.",
+    "Price": 15.99
+  },
+  {
+    "Id": 104,
+    "Type": "Plush",
+    "Brand": "Punchkins",
+    "Name": "Punchkins - Bites Taco - About It",
+    "Description": "Lettuce taco ‘bout how cute this bag charm is! This bite-sized plushie is perfect for any taco lover. His fun smile, dangly legs, and 3D toppings make him simply irresistible. He’d make a spec-taco-lar addition to any backpack, purse, or wallet.",
+    "Price": 9.99
+  },
+  {
+    "Id": 105,
+    "Type": "Plush",
+    "Brand": "Punchkins",
+    "Name": "Punchkins - Bites Pretzel - Twisted",
+    "Description": "Don’t get salty, but this bite-sized plush is knot interested in your lies. He only wants the facts. His sinister smile, dangly legs, and salty 3D topping make him a must-have. He’d look super cute hanging from any purse or bag.",
+    "Price": 9.99
+  },
+  {
+    "Id": 106,
+    "Type": "Plush",
+    "Brand": "Punchkins",
+    "Name": "Punchkins - Bites Smore - Mess",
+    "Description": "Choo-choo! This bite-sized plush is on the Hot Mess Express! This is the perfect bag charm for that person who just can’t get it together. This plushie’s sweet eyes, dangly legs, and 3D chocolate detail will make you feel all ooey and gooey inside. Grab him today and embrace the chaos of life together!",
+    "Price": 9.99
   }
 ]
